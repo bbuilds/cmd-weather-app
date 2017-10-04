@@ -20,7 +20,7 @@ const argv = yargs
     .help()
     .argv;
 
-const weatherAPiKey = '87d86478032a88b856080cba730f07f6';
+const weatherAPiKey = 'ENTER_YOUR_API_KEY';
 const endcodedAddress = encodeURIComponent(argv.address);
 const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${endcodedAddress}`;
 const convertCelcius = argv.c;
@@ -34,7 +34,7 @@ axios.get(geocodeUrl).then((response) => {
     const weatherUrl = `https://api.darksky.net/forecast/${weatherAPiKey}/${lat},${long}`;
 
     console.log(response.data.results[0].formatted_address);
-    
+
     return axios.get(weatherUrl);  
 
 })
